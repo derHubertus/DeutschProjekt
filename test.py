@@ -54,7 +54,8 @@ def get_response_plus_answers(dictionary_answers):
             
             dic[person].append(res)
     
-    print(json.dumps(dic, indent=4, ensure_ascii=False))
+    #print(json.dumps(dic, indent=4, ensure_ascii=False))
+    print(type(dic))
     return dic
 
 def get_response_names(liste):
@@ -103,10 +104,14 @@ def get_answers_in_text(quest_list):
     
     return dic_answers
 
+def write_in_file(dic_data: dict):
+    with open("response_data.json", "w") as file:
+        file.write(json.dumps(dic_data, ensure_ascii=False))
 
 #get_response_plus_answers()
 #print(response_id_list)
 #get_response_names(response_id_list)
 
-dictionary_answers = get_answers_in_text(get_quest_ids())
-get_response_plus_answers(dictionary_answers)
+#dictionary_answers = get_answers_in_text(get_quest_ids())
+#ans = get_response_plus_answers(dictionary_answers)
+#write_in_file(ans)
