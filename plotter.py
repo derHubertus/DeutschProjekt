@@ -123,13 +123,14 @@ def plot_activities_by_sex(liste):
             "Musik",
             "Social Media",
             "Filme",
+            "Spiele",
             "Telefonieren",
             "Fotografieren",
             "Lesen",
             "Sonstiges"]
     
-    male_acts = [0,0,0,0,0,0,0,0]
-    female_acts = [0,0,0,0,0,0,0,0]
+    male_acts = [0,0,0,0,0,0,0,0,0]
+    female_acts = [0,0,0,0,0,0,0,0,0]
     
     
     dic = liste[0]
@@ -143,14 +144,16 @@ def plot_activities_by_sex(liste):
             male_acts[2] += 1
         if "Filme" in acts:
             male_acts[3] += 1
-        if "Telefonieren" in acts:
+        if "Spiele" in acts:
             male_acts[4] += 1
-        if "Fotografieren" in acts:
+        if "Telefonieren" in acts:
             male_acts[5] += 1
-        if "Lesen" in acts:
+        if "Fotografieren" in acts:
             male_acts[6] += 1
-        if "Sonstiges" in acts:
+        if "Lesen" in acts:
             male_acts[7] += 1
+        if "Sonstiges" in acts:
+            male_acts[8] += 1
             
     dic2 = liste[1]
     for key in dic2.keys():
@@ -163,14 +166,17 @@ def plot_activities_by_sex(liste):
             female_acts[2] += 1
         if "Filme" in acts:
             female_acts[3] += 1
-        if "Telefonieren" in acts:
+        if "Spiele" in acts:
             female_acts[4] += 1
-        if "Fotografieren" in acts:
+        
+        if "Telefonieren" in acts:
             female_acts[5] += 1
-        if "Lesen" in acts:
+        if "Fotografieren" in acts:
             female_acts[6] += 1
-        if "Sonstiges" in acts:
+        if "Lesen" in acts:
             female_acts[7] += 1
+        if "Sonstiges" in acts:
+            female_acts[8] += 1
             
     print(male_acts)
     
@@ -206,5 +212,5 @@ def plot_activities_by_sex(liste):
 l = split_dic_ages(j)
 #plot_hours_ages(l)
 k = split_sex(j)
-plot_hours_by_sex(k)
+#plot_hours_by_sex(k)
 #plot_activities_by_sex(k)
