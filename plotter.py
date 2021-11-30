@@ -72,6 +72,39 @@ def plot_hours_ages(liste):
     
     return
 
+def plot_hours_by_sex(liste):
+    ages = ["Männlich", "Weiblich"]
+    hours = [0,0]
+    
+    for i in range(len(liste)):
+        counter = 0
+        dic = liste[i]
+        number = len(dic.keys())
+        
+        for key in dic.keys():
+            #print(dic[key][3])
+            if dic[key][3][0] == "0-2 Stunden":
+                counter += 1
+            if dic[key][3][0] == "2-4 Stunden":
+                counter += 3
+            if dic[key][3][0] == "4-6 Stunden":
+                counter += 5
+            if dic[key][3][0] == "ueber 6 Stunden":
+                counter += 7
+        counter = counter / number
+        hours[i] = counter
+        
+    
+    print(hours)
+    s = pd.Series(hours, index=ages)
+    s.plot(kind="bar", rot=0)
+    
+    plt.xlabel('Geschlecht')
+    plt.ylabel('Stunden pro Tag')
+    plt.show()
+    
+    return
+
 def split_sex(dic: dict):
     male = {}
     female = {}
@@ -173,4 +206,5 @@ def plot_activities_by_sex(liste):
 l = split_dic_ages(j)
 #plot_hours_ages(l)
 k = split_sex(j)
-plot_activities_by_sex(k)
+plot_hours_by_sex(k)
+#plot_activities_by_sex(k)
